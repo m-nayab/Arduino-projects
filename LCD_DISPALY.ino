@@ -1,25 +1,100 @@
 #include <LiquidCrystal.h>
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2); // RS, E, D4, D5, D6, D7
 
-int seconds = 0;
+byte customChar[] = {
+  B11111,
+  B10101,
+  B11111,
+  B11111,
+  B01110,
+  B01010,
+  B01010,
+  B11011
+};
 
-LiquidCrystal lcd_1(12, 11, 5, 4, 3, 2);
+const int btnLeft = 6;
+const int btnRight = 7;
 
-void setup()
-{
-  lcd_1.begin(16, 2); // Set up the number of columns and rows on the LCD.
+const int debounce_delay = 50;  // ms
 
-  // Print a message to the LCD.
-  lcd_1.print("hello world!");
+bool btnL_state=HIGH;
+bool prev_btnL_state;
+unsigned long btnL_last_debounce = 0;
+
+bool btnR_state=HIGH;
+bool prev_btnR_state;
+unsigned long btnR_last_debounce = 0;
+
+int position = 0;
+
+void setup() {
+  lcd.begin(16, 2);
+  lcd.createChar(0, customChar);
+  Serial.begin(9600);
+  
+  pinMode(btnLeft, INPUT);
+  pinMode(btnRight, INPUT);
+  digitalWrite(btnLeft, HIGH);
+  digitalWrite(btnRight, HIGH);
+  
+  customCharShow();
 }
 
-void loop()
-{
-  // set the cursor to column 0, line 1
-  // (note: line 1 is the second row, since counting
-  // begins with 0):
-  lcd_1.setCursor(0, 1);
-  // print the number of seconds since reset:
-  lcd_1.print(seconds);
-  delay(1000); // Wait for 1000 millisecond(s)
-  seconds += 1;
+  
+
+void loop(){
+  bool btnL_state_reading = digitalRead(btnLeft);
+  bool btnR_state_reading = digitalRead(btnRight);
+  
+  if(btnL_state_reading == HIGH && prev_btnL_state == LOW){
+    btnL_last_debounce = millis();
+  }  
+  if(btnR_state_reading == HIGH && prev_btnR_state == LOW){
+    btnR_last_debounce = millis();
+  } 
+  
+  if ( millis() > (btnL_last_debounce + debounce_delay) ) {
+    if(btnL_state != btnL_state_reading){
+      btnL_state = btnL_state_reading;
+      if(btnL_state_reading == HIGH){        
+        Serial.println("LEFT");
+        movechar('L');
+      }
+    }
+  }
+  if ( millis() > (btnR_last_debounce + debounce_delay) ) {
+    if(btnR_state != btnR_state_reading){
+      btnR_state = btnR_state_reading;
+      if(btnR_state_reading == HIGH){        
+        Serial.println("RIGHT");
+        movechar('R');
+      }
+    }
+  }
+    
+    
+  prev_btnL_state = btnL_state_reading;
+  prev_btnR_state = btnR_state_reading;
+}
+
+void movechar(char direction){
+  if(direction=='L' ){
+    if(position>=1){
+      position = position - 1;
+      Serial.println("position changed");
+      customCharShow();
+    }
+  }else if(direction=='R' ){
+    if(position<=14){
+      position = position + 1;
+      Serial.println("position changed");
+      customCharShow();
+    }
+  }
+}
+
+void customCharShow(){
+  lcd.clear();
+  lcd.setCursor(position,1);
+  lcd.write((byte)0);
 }
