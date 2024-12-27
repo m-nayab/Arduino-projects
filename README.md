@@ -14,7 +14,7 @@ Simulation Link: https://www.tinkercad.com/things/jvbq2UqUPMC-rgb-blinding-on-ch
 Simulation Link: https://www.tinkercad.com/things/0hveB9xNTCo-automatic-lighting
 5) distance_adjusting_led_brightness.ino: This project adjusts the brightness of an LED based on the distance from an object using a distance sensor.
 Simulation Link: https://www.tinkercad.com/things/5S1twk96bBU-distance-adjusting-led-brightness
-6 )led_blinking_depending_upon_potentiometer.ino: This project controls the brightness of an LED using a potentiometer.
+6) led_blinking_depending_upon_potentiometer.ino: This project controls the brightness of an LED using a potentiometer.
 Simulation Link: https://www.tinkercad.com/things/hfDZIGciwQu-led-blinking-depending-upon-potentiometer
 7) motion_led_blinker.ino: This project detects motion using a PIR sensor and blinks an LED accordingly.
 Simulation Link: https://www.tinkercad.com/things/biG1TrnX6CW-motion-led-blinker
