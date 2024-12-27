@@ -22,8 +22,14 @@ Simulation Link: https://www.tinkercad.com/things/biG1TrnX6CW-motion-led-blinker
 Simulation Link: https://www.tinkercad.com/things/dRfNHCHQAVd-temp-sensor
 9) timer_and_loading.ino: This project implements a timer or a loading animation.
 Simulation Link: https://www.tinkercad.com/things/3xfus26vCd0-timer-and-loading
-10) this project implements a smiling and sad face on lcd alteratively
+10) smiling_and_sad_face_1.ino: this project implements a smiling and sad face on lcd alteratively
 Simulation Link: https://www.tinkercad.com/things/4c0ASxmUwLr-smiling-and-sad-face-
+11) motor_controlling_with_potentiometer1.ino: This project demonstrates controlling the speed or direction of a DC motor using a potentiometer.
+Simulation Link: https://www.tinkercad.com/things/lp3B4Ykcm1M-motor-controlling-with-potentiometer?sharecode=g9nKIlmvUpMnYa61ePqiAcq4UuQQ5yIJJBVc1nJkcPA
+12) servo_controlling_with_potentiometer1.ino: This project shows how to control the position of a servo motor using a potentiometer.
+Simulation Link: https://www.tinkercad.com/things/c9n0a5RoLd0-servo-controlling-with-potentiometer?sharecode=oBSQwtzxT5WsCua7gAzgd6GRyqFZii5SSZNrUdw8rkc
+13) ir_remote_testing_1.ino: This project likely involves testing the functionality of an infrared (IR) remote control with an Arduino board.
+Simulation Link: https://www.tinkercad.com/things/kaK1jyYws1h-ir-remote-testing-?sharecode=4KCgAIy8ZmUdXgIGMED1R5tRVLroIz_YXVO6WaxZoqg
 
 Hardware Requirements
 
@@ -36,6 +42,5 @@ Install the Arduino IDE.
 Open the desired project file in the Arduino IDE.
 Connect the required hardware to your Arduino board.
 Upload the code to the board.
-Contributing
 
 Contributions are welcome! If you have any improvements or new projects to add, please feel free to create a pull request.
