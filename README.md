@@ -38,6 +38,10 @@ Each project has specific hardware requirements. Please refer to the individual 
 Getting Started
 
 Clone this repository to your local machine.
+
+Bash
+git clone https://github.com/m-nayab/Arduino-projects.git
+
 Install the Arduino IDE.
 Open the desired project file in the Arduino IDE.
 Connect the required hardware to your Arduino board.
